@@ -1,0 +1,112 @@
+commit 696a2efddb34015e00bd5d49edb9838e71a68bf1
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:51:02 2022 +0200
+
+    poistettu taas
+
+ tiedostoja/file1 | 1 +
+ tiedostoja/file3 | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 08aa268becb287c50dc103bd3737c70830d0ca7b
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:49:03 2022 +0200
+
+    filet lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7db463e47d72f21396641ebabbe6c13c15a0fae9
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:40:40 2022 +0200
+
+    poistettu, lisätty, muutettu
+
+ eka.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ee1082e5807627c59fa4eb9b9581e964d65f3c75
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:29:44 2022 +0200
+
+    poistettu ja muutettu
+
+ tiedosto.txt => eka.txt | 0
+ toinen.txt              | 1 -
+ 2 files changed, 1 deletion(-)
+
+commit dc61216f20b70fce05b919c409c8cbedf89e9bc2
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:22:47 2022 +0200
+
+    muutettu taas
+
+ tiedosto.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 82f97659bebc0304fe204dc862217c1eb9d814b9
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:21:58 2022 +0200
+
+    muutettu
+
+ tiedosto.txt | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+
+commit d8efca06f2fb0afc8b2099779f287791ba01f688
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:19:00 2022 +0200
+
+    lisätty
+
+ stuff/gugugaga | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 185382dd698b87516819ca00678e9941759081a4
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:17:40 2022 +0200
+
+    2 ja 3lisätty
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit c26c8d6dec7f73499600ce4d727fa6701a93f9ac
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:16:07 2022 +0200
+
+    toinen.txt lisätty
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit e47810307f7179f194b8eee899e607b61eae52be
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:13:45 2022 +0200
+
+    kolmas.txt lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a61c4cf8ee15cd747277d3893da2e9b24357f85f
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:11:34 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit baff48bf1549367a58ec021b198ae5ff3e29df93
+Author: Elias Artto <elias.artto.e@gmail.com>
+Date:   Mon Oct 31 20:08:47 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
