@@ -11,8 +11,8 @@ Sovellus on tarkoitus toteuttaa graafisena käyttöliittymänä Tkinterin avulla
 
 ## Suunnitellut toiminnallisuudet
 Ideoita mitä ehkä tullaan toteuttamaan:
--Käyttäjien tietojen tallennus(ehkä paikallisesti)
--Sovellukseen kirjautuminen
--Kauppa missä voi käyttää virtuaalivaluuttaa.
--Ääniefektejä
+- Käyttäjien tietojen tallennus(ehkä paikallisesti)
+- Sovellukseen kirjautuminen
+- Kauppa missä voi käyttää virtuaalivaluuttaa.
+- Ääniefektejä
 
