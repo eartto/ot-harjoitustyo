@@ -21,3 +21,6 @@
 
 ### 6.12
 - 4h, sovelluslogiikkaa viimeistelty ja bugeja korjattu
+
+### Total
+- 25h
