@@ -11,7 +11,7 @@ class Card:
 
     def setJackvalue(self, newvalue):
         self.jackvalue = newvalue
-        return newvalue        
+              
 
     def __repr__(self):
         value = self.value

@@ -116,6 +116,10 @@ class BlackjackGUI(tk.Tk):
         # Deal cards function
         def deal_cards():
 
+            hide_deal_button()
+            show_hit_button()
+            show_stand_button()
+
             # Clear hands
             self.deck = Deck()
             p_hand.clear()
@@ -175,8 +179,8 @@ class BlackjackGUI(tk.Tk):
             player_image_2nd = resize_card(f'{cardspath}/{player_second_card}.png')
             player_label_2.config(image=player_image_2nd)
 
-            print(self.handchecker.hand_total(p_hand))
             if self.handchecker.hand_total(p_hand) == 21:
+                sleep()
                 blackjack()
             
 
@@ -188,7 +192,7 @@ class BlackjackGUI(tk.Tk):
                 try:
                     p_card = self.deck.deal_cards(p_hand)
 
-                    global player_image1, player_image2, player_image3, player_image4
+                    global player_image1, player_image2, player_image3, player_image4, player_image5
                     
                     if self.p_card_position == 0:
                         player_image1 = resize_card(f'{cardspath}/{p_card}.png')
@@ -204,24 +208,32 @@ class BlackjackGUI(tk.Tk):
 
                     elif self.p_card_position == 3:
                         player_image4 = resize_card(f'{cardspath}/{p_card}.png')
-                        player_label_6.config(image=player_image4)    
+                        player_label_6.config(image=player_image4)
+
+                    elif self.p_card_position == 4:
+                        player_image5 = resize_card(f'{cardspath}/{p_card}.png')
+                        player_label_6.config(image=player_image5)         
 
                     self.p_card_position += 1
 
-                    print(self.handchecker.hand_total(p_hand))
 
                     if self.handchecker.bust_hand(self.handchecker.hand_total(p_hand)):
                         
-                        bust()
+                        self.handchecker.switch_aces(p_hand)
+                        
+
+                        if self.handchecker.bust_hand(self.handchecker.hand_total(p_hand)):
+                            bust()
 
                     elif self.handchecker.hand_total(p_hand) == 21:
                         player_hits_21()
 
+                    
  
                     
 
                 except:
-                    pass
+                    limit()
 
 
         def stand():
@@ -254,7 +266,7 @@ class BlackjackGUI(tk.Tk):
                         try:
                             d_card = self.deck.deal_cards(d_hand)
 
-                            global house_image1, house_image2, house_image3, house_image4
+                            global house_image1, house_image2, house_image3, house_image4, house_image5
                             
                             if self.d_card_position == 0:
                                 house_image1 = resize_card(f'{cardspath}/{d_card}.png')
@@ -270,11 +282,14 @@ class BlackjackGUI(tk.Tk):
 
                             elif self.d_card_position == 3:
                                 house_image4 = resize_card(f'{cardspath}/{d_card}.png')
-                                house_label_6.config(image=house_image4)    
+                                house_label_6.config(image=house_image4)
+
+                            elif self.d_card_position == 4:
+                                house_image5 = resize_card(f'{cardspath}/{d_card}.png')
+                                house_label_6.config(image=house_image5)         
 
                             self.d_card_position += 1
 
-                            print(self.handchecker.hand_total(d_hand))
 
                             if self.handchecker.bust_hand(self.handchecker.hand_total(d_hand)):
                                 
@@ -287,7 +302,7 @@ class BlackjackGUI(tk.Tk):
                             
 
                         except:
-                            pass
+                            limit()
                 
 
         def bust():
@@ -312,6 +327,7 @@ class BlackjackGUI(tk.Tk):
 
         def push():
             print("Push")
+            print("It's a tie!")
             hide_hit_button()
             hide_stand_button()
             show_deal_button()
@@ -347,6 +363,14 @@ class BlackjackGUI(tk.Tk):
             hide_stand_button()
             show_deal_button()
 
+        def limit():
+            print("Limit!")
+            print("Reset")
+            hide_hit_button()
+            hide_stand_button()
+            show_deal_button()
+
+
         def sleep():
             time.sleep(0.4)
 
@@ -359,7 +383,7 @@ class BlackjackGUI(tk.Tk):
 
         # Deal button(hides when clicked)
         deal_button = Button(button_frame, text="Deal Cards", font=("Raleway", 14))
-        deal_button.configure(command=lambda:  [deal_cards(), hide_deal_button(), show_hit_button(), show_stand_button()])
+        deal_button.configure(command=lambda:  [deal_cards()])
         deal_button.grid(row=0,column=0)
 
         # Hit button

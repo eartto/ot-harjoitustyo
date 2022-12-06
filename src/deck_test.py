@@ -9,4 +9,4 @@ class TestDeck(unittest.TestCase):
 
     def test_deck_length(self):
 
-        self.assertEqual(self.deck.deck_length(), 52)
+        self.assertEqual(len(self.deck), 52)

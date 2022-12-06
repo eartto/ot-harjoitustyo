@@ -3,6 +3,10 @@ from invoke import task
 
 
 @task
+def build(ctx):
+    ctx.run("pip install Pillow", pty=True)
+
+@task
 def start(ctx):
     ctx.run("python3 src/index.py", pty=True)
 

@@ -14,4 +14,10 @@
 - 2h, gui:n toimintoja laajennettu ja korttien kuvat lisätty gui hakemistoon
 
 ### 4.12
-2h, tomintoja lisätty ja mukautettu löytämään paikallisen reitin kuva tiedostoihin 
+- 2h, tomintoja lisätty ja mukautettu löytämään paikallisen reitin kuva tiedostoihin 
+
+### 5.12
+- 3h, sovelluslogiikkaa toteutettu
+
+### 6.12
+- 4h, sovelluslogiikkaa viimeistelty ja bugeja korjattu
