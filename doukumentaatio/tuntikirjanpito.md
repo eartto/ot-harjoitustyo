@@ -22,5 +22,7 @@
 ### 6.12
 - 4h, sovelluslogiikkaa viimeistelty ja bugeja korjattu
 
+### 10.12
+- 2h, koodin pakkausrakennetta muutettu, bugeja korjattu ja koodia muutenkin siistitty
 ### Total
-- 25h
+- 27h

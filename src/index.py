@@ -1,5 +1,4 @@
-from blackjackgui import BlackjackGUI
-
+from gui.blackjackgui import BlackjackGUI
 
 
 def main():
