@@ -24,5 +24,8 @@
 
 ### 10.12
 - 2h, koodin pakkausrakennetta muutettu, bugeja korjattu ja koodia muutenkin siistitty
+
+### 12.12
+- 2h, testejä ja docstringiä kirjoitettu.
 ### Total
-- 27h
+- 29h

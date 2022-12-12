@@ -15,12 +15,12 @@ class BlackjackGUI(tk.Tk):
 
         # Change working directory to src
         os.chdir(sys.path[0])
-        
+
         # Absolute path to the card images
         cardspath = os.path.abspath("gui/cards")
-        
+
         self.handchecker = HandChecker()
-        
+
         d_hand = []
         p_hand = []
 
@@ -89,7 +89,7 @@ class BlackjackGUI(tk.Tk):
 
         # Resize function for cards
         def resize_card(card):
-            
+
 
             card_image = Image.open(card)
 
@@ -104,13 +104,13 @@ class BlackjackGUI(tk.Tk):
             deal_button.grid_forget()
 
         def show_deal_button():
-            deal_button.grid(row=0,column=0) 
+            deal_button.grid(row=0,column=0)
 
         def show_hit_button():
             hit_button.grid(row=0,column=1,padx=22)
 
         def hide_hit_button():
-            hit_button.grid_forget()            
+            hit_button.grid_forget()
 
         def show_stand_button():
             stand_button.grid(row=0,column=2)
@@ -130,7 +130,7 @@ class BlackjackGUI(tk.Tk):
             self.deck = Deck()
             p_hand.clear()
             d_hand.clear()
-            
+
             # Card position resets on deal_cards function
             global d_card_position, p_card_position
             self.d_card_position = 0
@@ -156,11 +156,11 @@ class BlackjackGUI(tk.Tk):
             # Dealers first and hidden card
             global hidden_card
             hidden_card = self.deck.deal_cards(d_hand)
-            
+
             # Saving the hidden card image for later reveal
             global hidden_card_image
             hidden_card_image = resize_card(f'{cardspath}/{hidden_card}.png')
-            
+
             # Cardback image
             global cardback_image
             cardback_image = resize_card(f'{cardspath}/cardback.png')
@@ -172,7 +172,7 @@ class BlackjackGUI(tk.Tk):
             global house_image_2nd
             house_image_2nd = resize_card(f'{cardspath}/{house_second_card}.png')
             house_label_2.config(image=house_image_2nd)
-            
+
             # Players cards
             player_first_card = self.deck.deal_cards(p_hand)
             player_second_card = self.deck.deal_cards(p_hand)
@@ -181,7 +181,7 @@ class BlackjackGUI(tk.Tk):
             global player_image_1st
             player_image_1st = resize_card(f'{cardspath}/{player_first_card}.png')
             player_label_1.config(image=player_image_1st)
-            
+
             # Second
             global player_image_2nd
             player_image_2nd = resize_card(f'{cardspath}/{player_second_card}.png')
@@ -190,18 +190,18 @@ class BlackjackGUI(tk.Tk):
             if self.handchecker.hand_total(p_hand) == 21:
                 sleep()
                 blackjack()
-            
+
 
 
         def hit():
 
             if self.p_card_position <= 4:
-                
+
                 try:
                     p_card = self.deck.deal_cards(p_hand)
 
                     global player_image1, player_image2, player_image3, player_image4, player_image5
-                    
+
                     if self.p_card_position == 0:
                         player_image1 = resize_card(f'{cardspath}/{p_card}.png')
                         player_label_3.config(image=player_image1)
@@ -220,15 +220,15 @@ class BlackjackGUI(tk.Tk):
 
                     elif self.p_card_position == 4:
                         player_image5 = resize_card(f'{cardspath}/{p_card}.png')
-                        player_label_7.config(image=player_image5)         
+                        player_label_7.config(image=player_image5)
 
                     self.p_card_position += 1
 
                     # Checks if hand busts, then switches any aces to ones
                     if self.handchecker.bust_hand(self.handchecker.hand_total(p_hand)):
-                        
+
                         self.handchecker.switch_aces(p_hand)
-                        
+
                         if self.handchecker.bust_hand(self.handchecker.hand_total(p_hand)):
                             bust()
                         elif self.handchecker.hand_total(p_hand) == 21:
@@ -243,7 +243,7 @@ class BlackjackGUI(tk.Tk):
 
 
         def stand():
-            
+
             hide_hit_button()
             hide_stand_button()
 
@@ -261,19 +261,19 @@ class BlackjackGUI(tk.Tk):
             if self.handchecker.hand_total(d_hand) == 21:
                 standoff()
             elif self.handchecker.hand_total(d_hand) >= 17:
-                standoff() 
+                standoff()
             else:
 
                 while self.handchecker.hand_total(d_hand) < 17:
 
 
                     if self.d_card_position <= 4:
-                        
+
                         try:
                             d_card = self.deck.deal_cards(d_hand)
 
                             global house_image1, house_image2, house_image3, house_image4, house_image5
-                            
+
                             if self.d_card_position == 0:
                                 house_image1 = resize_card(f'{cardspath}/{d_card}.png')
                                 house_label_3.config(image=house_image1)
@@ -292,13 +292,13 @@ class BlackjackGUI(tk.Tk):
 
                             elif self.d_card_position == 4:
                                 house_image5 = resize_card(f'{cardspath}/{d_card}.png')
-                                house_label_7.config(image=house_image5)         
+                                house_label_7.config(image=house_image5)
 
                             self.d_card_position += 1
 
 
                             if self.handchecker.bust_hand(self.handchecker.hand_total(d_hand)):
-                                
+
                                 self.handchecker.switch_aces(d_hand)
 
                                 if self.handchecker.bust_hand(self.handchecker.hand_total(d_hand)):
@@ -308,11 +308,11 @@ class BlackjackGUI(tk.Tk):
                                 lose()
                             else:
                                 standoff()
-                            
+
 
                         except:
                             limit()
-                
+
 
         def bust():
             # Reveal the "hole card"
@@ -320,11 +320,11 @@ class BlackjackGUI(tk.Tk):
             print("Bust!")
             lose()
 
-        
+
         def player_hits_21():
             dealer_hit()
 
-        
+
         def blackjack():
             # Reveal the "hole card"
             house_label_1.config(image=hidden_card_image)
@@ -333,9 +333,9 @@ class BlackjackGUI(tk.Tk):
                 print("Blackjack!")
                 win()
             else:
-                push()  
+                push()
 
-        
+
         def standoff():
             if self.handchecker.hand_total(p_hand) == self.handchecker.hand_total(d_hand):
                 push()
@@ -345,13 +345,13 @@ class BlackjackGUI(tk.Tk):
             else:
                 print("Dealer has better hand")
                 lose()
-          
+
 
         def house_bust():
             print("House busts!")
             win()
-        
-        
+
+
         def push():
             print("Push")
             print("It's a tie!")
@@ -359,14 +359,14 @@ class BlackjackGUI(tk.Tk):
             hide_stand_button()
             show_deal_button()
 
-        
+
         def win():
             hide_hit_button()
             hide_stand_button()
             show_deal_button()
             print("You Win!")
-            
-        
+
+
         def lose():
             print("You Lose")
             hide_hit_button()
@@ -394,19 +394,18 @@ class BlackjackGUI(tk.Tk):
 
         # Deal button(hides when clicked)
         deal_button = Button(button_frame, text="Deal Cards", font=("Raleway", 14))
-        deal_button.configure(command=lambda:  [deal_cards()])
+        deal_button.configure(command=deal_cards)
         deal_button.grid(row=0,column=0)
 
         # Hit button
         hit_button = Button(button_frame, text="Hit", font=("Raleway", 14))
-        hit_button.configure(command=lambda: hit())
+        hit_button.configure(command=hit)
 
         # Stand Button
         stand_button = Button(button_frame, text="Stand", font=("Raleway", 14))
-        stand_button.configure(command=lambda: stand())
+        stand_button.configure(command=stand)
 
 
 
 
 
-        
