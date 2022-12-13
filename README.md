@@ -20,3 +20,4 @@
 [changelog](https://github.com/eartto/ot-harjoitustyo/blob/main/doukumentaatio/changelog.md)
 [tyokirjanpito](https://github.com/eartto/ot-harjoitustyo/blob/main/doukumentaatio/tuntikirjanpito.md)
 [release](https://github.com/eartto/ot-harjoitustyo/releases/tag/viikko5)
+[release2](https://github.com/eartto/ot-harjoitustyo/releases/tag/viikko6)
