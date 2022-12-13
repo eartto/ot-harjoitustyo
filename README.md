@@ -10,7 +10,8 @@
 
 ## Testaus
 - suorita kometorivillä: "poetry run invoke test"
-- testikattavuusraportti: "poetry run coverage-report"
+- testikattavuusraportti: "poetry run invoke coverage-report"
+- pylint: "poetry run invoke lint"
 
 ### Linkkejä:  
 [gitlog](https://github.com/eartto/ot-harjoitustyo/blob/main/laskarit/gitlog.txt)
