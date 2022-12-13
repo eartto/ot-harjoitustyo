@@ -15,3 +15,9 @@
 - Handchecker luokka lisätty
 - Käyttöliittymää järjestelty
 - Bugeja korjattu
+
+## Viikko 6
+
+- Testausta lisätty
+- Bugeja korjattu
+- Koodia siistitty pylintin avulla

@@ -33,12 +33,14 @@ class BlackjackGUI(tk.Tk):
         temp_frame = Frame(self, bg="green")
         temp_frame.pack(pady=20)
 
+
         # Card frames
         house_frame = LabelFrame(temp_frame, text="House", bd=0)
         house_frame.grid(row=0, column=0, ipadx=20)
 
         player_frame = LabelFrame(temp_frame, text="Player", bd=0)
         player_frame.grid(row=1, column=0, pady=20, ipadx=20)
+
 
         # Insert blank cards into frames
 
@@ -153,11 +155,11 @@ class BlackjackGUI(tk.Tk):
             player_label_6.config(image="")
             player_label_7.config(image="")
 
-            # Dealers first and hidden card
+            # Dealers first and hidden "hole" card
             global hidden_card
             hidden_card = self.deck.deal_cards(d_hand)
 
-            # Saving the hidden card image for later reveal
+            # Saving the hidden "hole" card image for later reveal
             global hidden_card_image
             hidden_card_image = resize_card(f'{cardspath}/{hidden_card}.png')
 
@@ -231,6 +233,7 @@ class BlackjackGUI(tk.Tk):
 
                         if self.handchecker.bust_hand(self.handchecker.hand_total(p_hand)):
                             bust()
+
                         elif self.handchecker.hand_total(p_hand) == 21:
                             player_hits_21()
 
