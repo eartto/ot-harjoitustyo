@@ -27,5 +27,8 @@
 
 ### 12.12
 - 2h, testejä ja docstringiä kirjoitettu.
+
+### 16.12
+- 2h, raha ja ääniefektit implimentoitu.
 ### Total
-- 29h
+- 31h

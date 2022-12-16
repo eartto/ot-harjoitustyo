@@ -5,6 +5,8 @@ from invoke import task
 @task
 def build(ctx):
     ctx.run("pip install Pillow", pty=True)
+    ctx.run("pip install pygame", pty=True)
+
 
 @task
 def start(ctx):

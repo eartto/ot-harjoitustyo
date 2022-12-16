@@ -3,6 +3,7 @@ import sys
 import time
 import tkinter as tk
 from tkinter import *
+import pygame
 
 from entities.deck import Deck
 from entities.handchecker import HandChecker
@@ -16,19 +17,25 @@ class BlackjackGUI(tk.Tk):
         # Change working directory to src
         os.chdir(sys.path[0])
 
-        # Absolute path to the card images
+        # Absolute path to the card images and sounds
         cardspath = os.path.abspath("gui/cards")
+        soundpath = os.path.abspath("gui/sounds")
 
         self.handchecker = HandChecker()
 
         d_hand = []
         p_hand = []
 
+        # Player money at start
+        self.money = 500
+
 
         # Title and root
         self.title('Blackjack')
         self.geometry('1200x800')
         self.configure(background="green")
+
+        pygame.mixer.init()
 
         temp_frame = Frame(self, bg="green")
         temp_frame.pack(pady=20)
@@ -40,6 +47,12 @@ class BlackjackGUI(tk.Tk):
 
         player_frame = LabelFrame(temp_frame, text="Player", bd=0)
         player_frame.grid(row=1, column=0, pady=20, ipadx=20)
+
+        money_frame = Frame(temp_frame, bd=0)
+        money_frame.grid(row=4, column=0, pady=20, ipadx=20)
+
+        money_label = Label(money_frame, text=self.money)
+        money_label.grid(row=0,column=0)
 
 
         # Insert blank cards into frames
@@ -128,6 +141,10 @@ class BlackjackGUI(tk.Tk):
             show_hit_button()
             show_stand_button()
 
+            take_money(50)
+
+            deal_cards_sound()
+
             # Clear hands
             self.deck = Deck()
             p_hand.clear()
@@ -201,6 +218,8 @@ class BlackjackGUI(tk.Tk):
 
                 try:
                     p_card = self.deck.deal_cards(p_hand)
+
+                    hit_sound()
 
                     global player_image1, player_image2, player_image3, player_image4, player_image5
 
@@ -364,14 +383,17 @@ class BlackjackGUI(tk.Tk):
 
 
         def win():
+            print("You Win!")
+            give_money(100)
+            win_sound()
             hide_hit_button()
             hide_stand_button()
             show_deal_button()
-            print("You Win!")
 
 
         def lose():
             print("You Lose")
+            lose_sound()
             hide_hit_button()
             hide_stand_button()
             show_deal_button()
@@ -385,8 +407,34 @@ class BlackjackGUI(tk.Tk):
             show_deal_button()
 
 
+
+        def take_money(amount):
+            self.money = self.money - amount
+            money_label.config(text=self.money)
+
+        def give_money(amount):
+            self.money = self.money + amount
+            money_label.config(text=self.money)
+
+
         def sleep():
             time.sleep(0.4)
+
+        def deal_cards_sound():
+            pygame.mixer.music.load(soundpath + "/" + "deal-cards.mp3")
+            pygame.mixer.music.play(loops=3)
+
+        def hit_sound():
+            pygame.mixer.music.load(soundpath + "/" + "hit.mp3")
+            pygame.mixer.music.play(loops=0)
+
+        def win_sound():
+            pygame.mixer.music.load(soundpath + "/" + "win.mp3")
+            pygame.mixer.music.play(loops=0)
+
+        def lose_sound():
+            pygame.mixer.music.load(soundpath + "/" + "lose.mp3")
+            pygame.mixer.music.play(loops=0)
 
         # Frame for buttons
         button_frame = Frame(self, bg="green")
