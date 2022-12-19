@@ -1,1 +1,1 @@
-![Pakkausrakenne] (./pakkauskaavio.png)
+![Pakkausrakenne] (.pakkauskaavio.png)
