@@ -34,17 +34,17 @@ class Deck:
 
 
     def deal_cards(self, hand):
-        """Deals one random card to a hand.
+        """Deals the top card to designated hand.
 
         Args:
             hand: a hand that you wish to deal a card to.
         """
 
-        rando_card = random.choice(self.deck)
-        self.deck.remove(rando_card)
-        hand.append(rando_card)
+        card = self.deck[0]
+        self.deck.remove(card)
+        hand.append(card)
 
-        return rando_card
+        return card
 
     def __len__(self):
         return len(self.deck)

@@ -326,7 +326,8 @@ class BlackjackGUI(tk.Tk):
                                 if self.handchecker.bust_hand(self.handchecker.hand_total(d_hand)):
                                         house_bust()
 
-                            elif self.handchecker.hand_total(d_hand) == 21:
+
+                            elif (self.handchecker.hand_total(d_hand) == 21) & (self.handchecker.hand_total(p_hand) < 21):
                                 lose()
                             else:
                                 standoff()
