@@ -1,1 +1,1 @@
-![Alt text] (/pakkauskaavio.png?raw=true "Title")
+![Pakkausrakenne] (./pakkauskaavio.png)
