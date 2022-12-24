@@ -41,7 +41,7 @@ class BlackjackGUI(tk.Tk):
         temp_frame.pack(pady=20)
 
 
-        # Card frames
+        # Card frames and money frame
         house_frame = LabelFrame(temp_frame, text="House", bd=0)
         house_frame.grid(row=0, column=0, ipadx=20)
 
